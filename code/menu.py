@@ -10,7 +10,7 @@ from code.const import WIN_WIDTH, COLOR_F, MENU_OPTION, COLOR_B, COLOR_P, COLOR_
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./assets/menu.png')
+        self.surf = pygame.image.load('./assets/menu.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -18,7 +18,7 @@ class Menu:
         pygame.mixer_music.load('./assets/musicmenu.wav')
         pygame.mixer_music.play(-1)
         while True:
-            #imagebns
+            #textos/imagens
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(136, "Magician", (40, 150, 189), ((WIN_WIDTH / 2), 150))
             self.menu_text(136, "Shooter", COLOR_F, ((WIN_WIDTH / 2), 300))
