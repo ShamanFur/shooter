@@ -25,5 +25,5 @@ class EntityFactory:
                 list_bg.append(bg3_right)
                 return list_bg
             case 'player':
-                return Player('player', (150, 470))
-
+                player = Player('player', (150, 470))
+                return player

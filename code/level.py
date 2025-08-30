@@ -25,25 +25,24 @@ class Level:
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         running = True
+
         while running:
-            #arrumando efeito parallax
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
             for entity in self.entity_list:
                 entity.move()
-            self.window.fill((0, 0, 0, 0))
+                #arrumando o parallax
+            self.window.fill((0, 0, 0))
             for entity in self.entity_list:
-                self.window.blit(source= entity.surf, dest= entity.rect)
-
-            clock.tick(60)
+                self.window.blit(entity.surf, entity.rect)
 
 
             self.level_text(30, f'{self.name} - TimeOut:{self.timeout / 1000:.1f}s', COLOR_B, (55, 25))
             self.level_text(20, f'fps:{clock.get_fps():.0f}', COLOR_B, (45, 580))
             self.level_text(20, f'entidades:{len(self.entity_list)}', COLOR_B, (150, 580))
             pygame.display.flip()
-    pass
+            clock.tick(60)
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Comic Sans MS", size=text_size)
