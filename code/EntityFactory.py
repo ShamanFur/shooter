@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from code.background import Background
+from code.const import WIN_WIDTH
 
 
 class EntityFactory:
@@ -12,5 +13,6 @@ class EntityFactory:
                 list_bg = []
                 for i in range(3):
                     list_bg.append(Background(f'Level1bg{i}', (0, 0)))
+                    list_bg.append(Background(f'Level1bg{i}', (WIN_WIDTH, 0)))
                 return list_bg
-        return None
+

@@ -15,8 +15,18 @@ class Level:
         self.entity_list.extend(EntityFactory.get_entity('Level1bg'))
 
     def run(self):
-        while True:
+        clock = pygame.time.Clock()
+        running = True
+        while running:
+            #arrumando efeito parallax
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+            for entity in self.entity_list:
+                entity.move()
+            self.window.fill((0, 0, 0))
             for entity in self.entity_list:
                 self.window.blit(source= entity.surf, dest= entity.rect)
-                pygame.display.flip()
-            pass
+            pygame.display.flip()
+            clock.tick(60)
+
