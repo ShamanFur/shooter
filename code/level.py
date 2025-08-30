@@ -16,6 +16,8 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list [Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1bg'))
+        player = EntityFactory.get_entity('player')
+        self.entity_list.append(player)
         self.timeout = 30000 #30 segundos
 
     def run(self):
@@ -30,7 +32,7 @@ class Level:
                     running = False
             for entity in self.entity_list:
                 entity.move()
-            self.window.fill((0, 0, 0))
+            self.window.fill((0, 0, 0, 0))
             for entity in self.entity_list:
                 self.window.blit(source= entity.surf, dest= entity.rect)
 
