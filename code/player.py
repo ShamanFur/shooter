@@ -25,7 +25,7 @@ class Player(Entity):
         self.rect.y += self.vel_vertical
 
         # chão
-        ground = WIN_HEIGHT - self.rect.height - 20
+        ground = 470
         if self.rect.y >= ground:
             self.rect.y = ground
             self.vel_vertical = 0

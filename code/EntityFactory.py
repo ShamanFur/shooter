@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from code.Enemy import Enemy
 from code.background import Background
 from code.const import WIN_WIDTH, WIN_HEIGHT
 from code.player import Player
@@ -25,5 +26,6 @@ class EntityFactory:
                 list_bg.append(bg3_right)
                 return list_bg
             case 'player':
-                player = Player('player', (150, 470))
-                return player
+                return Player('player', (150, 470))
+            case 'Enemy':
+                return Enemy('Enemy', (WIN_WIDTH + 10, 470))
